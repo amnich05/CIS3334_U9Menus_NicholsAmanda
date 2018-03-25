@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Send an Email to your Study Partner", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                // send email to a mate from floating email icon
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
                 emailIntent.setData(Uri.parse("mailto:"));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Hey Study Partner");
@@ -75,22 +76,24 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_add) {
+        if (id == R.id.action_add) { // add a mate from action menu
+            // not set up
             Snackbar.make(getWindow().getDecorView(), "adding study mates is not available yet", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             return true;
         }
-        if (id == R.id.action_delete) {
+        if (id == R.id.action_delete) { // delete a mate from action menu
+            // not set up
             Snackbar.make(getWindow().getDecorView(), "deleting a study mate is not available yet", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             return true;
         }
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings) { // view settings from action menu
             Intent settingsIntent = ( new Intent(this, SettingsActivity.class));
             startActivity(settingsIntent);
             return true;
         }
-        if (id == R.id.action_email) {
+        if (id == R.id.action_email) { // send email to a mate from action menu
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
             emailIntent.setData(Uri.parse("mailto:"));
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Hey Study Partner");
@@ -99,7 +102,7 @@ public class MainActivity extends AppCompatActivity
             }
             return true;
         }
-        if (id == R.id.action_sms) {
+        if (id == R.id.action_sms) { // send sms to a mate from action menu
             Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
             smsIntent.setData(Uri.parse("smsto:"));
             smsIntent.putExtra("sms_body", "Hello Study Partner");
